@@ -31,9 +31,8 @@ public class DartNodeFactory extends DartBaseListener {
     private LexicalScope scope = new LexicalScope(null);
 
     private DartNode current = null;
-    private DartBlock block = null;
-    private Map<String, RootCallTarget> allFunction = new HashMap<>();
 
+    private Map<String, RootCallTarget> allFunction = new HashMap<>();
     public Map<String, RootCallTarget> getAllFunctions() {
         return allFunction;
     }
@@ -44,15 +43,32 @@ public class DartNodeFactory extends DartBaseListener {
     }
 
     @Override
+    public void enterTopLevelDefinition(DartParser.TopLevelDefinitionContext ctx) {
+        this.scope = new LexicalScope(scope);
+        this.current = new DartTopLevelDefinition(this.scope, current);
+    }
+
+    @Override
+    public void exitTopLevelDefinition(DartParser.TopLevelDefinitionContext ctx) {
+        this.scope = this.scope.contex;
+    }
+
+    @Override
     public void enterFunctionSignature(DartParser.FunctionSignatureContext ctx) {
-        current = new DartFunction();
+        this.current = new DartFunctionSignature(this.scope, current);
     }
 
     @Override
     public void exitFunctionSignature(DartParser.FunctionSignatureContext ctx) {
-        DartFunction v = (DartFunction)current;
-        scope.locals.put(v.name, v);
-        current = null;
+    }
+
+    @Override public void enterFunctionBody(DartParser.FunctionBodyContext ctx) {
+        this.scope = new LexicalScope(scope);
+        this.current = new DartFunctionBody(this.scope, current);
+    }
+
+    @Override public void exitFunctionBody(DartParser.FunctionBodyContext ctx) {
+        this.scope = this.scope.contex;
     }
 
     @Override
@@ -60,20 +76,28 @@ public class DartNodeFactory extends DartBaseListener {
         current.addIdentifier(ctx.start.getText());
     }
 
-    @Override
-    public void enterFunctionBody(DartParser.FunctionBodyContext ctx) {
-        this.scope = new LexicalScope(scope);
+    /*@Override
+    public void enterFunctionSignature(DartParser.FunctionSignatureContext ctx) {
+
+        current = new DartFunction(this.scope, current);
     }
+
+    @Override
+    public void exitFunctionSignature(DartParser.FunctionSignatureContext ctx) {
+
+    }*/
+
+
 
     @Override
     public void enterBlock(DartParser.BlockContext ctx) {
         this.scope = new LexicalScope(scope);
-        block = new DartBlock();
-        block.scope = scope;
     }
 
     @Override
     public void exitBlock(DartParser.BlockContext ctx) {
         scope = scope.contex;
     }
+
+
 }
