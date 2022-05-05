@@ -1,2 +1,9 @@
-/mnt/c/Users/luisb/tesis/truffle/tesis_try/language/src/main/java/edu/uniandes/dart/DartFileDetector.java
-/mnt/c/Users/luisb/tesis/truffle/tesis_try/language/src/main/java/edu/uniandes/dart/DartLanguage.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/parser/DartListener.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/errors/DartParseError.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/parser/DartLexer.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/DartLanguage.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/factory/DartNodeFactory.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/parser/DartBaseListener.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/parser/DartParser.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/SLFileDetector.java
+/home/uroboka/Tesis/TruffleDartLanguage/language/src/main/java/com/oracle/truffle/sl/SLContext.java

@@ -1,0 +1,2 @@
+bin/dart = ../languages/dart/bin/dart
+bin/dartnative = ../languages/dart/bin/dartnative

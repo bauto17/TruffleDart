@@ -1,0 +1,5 @@
+Bundle-Name: Dart Language
+Bundle-Symbolic-Name: com.oracle.truffle.sl
+Bundle-Version: 22.0.0.2
+Bundle-RequireCapability: org.graalvm; filter:="(&(graalvm_version=22.0.0.2)(os_arch=amd64))"
+x-GraalVM-Polyglot-Part: True
